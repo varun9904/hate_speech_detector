@@ -45,7 +45,6 @@ This made it easier while still solving the problem.
 3. **Download NLTK Data:**
 
     The application automatically downloads necessary NLTK corpora (such as stopwords, punkt, wordnet, omw-1.4) on startup. No manual intervention is needed.
-    ```
 
 ## Deployment
 
@@ -76,7 +75,6 @@ Contributions, bug reports, and feature suggestions are welcome! Feel free to op
 ## License
 
 This project is licensed under the MIT License.
-
 
 
 
