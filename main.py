@@ -16,9 +16,6 @@ def clean_text(text):
     filtered = [w for w in tokens if w not in stop_words]
     return " ".join(filtered)
 
-app = FastAPI(title="Hate Speech Detection API")
-
-
 model = joblib.load("best_model.pkl")
 vectorizer = joblib.load("vectorizer.pkl")
 
