@@ -1,3 +1,18 @@
+import os
+import nltk
+
+nltk_data_dir = os.path.join(os.getcwd(), "nltk_data")
+os.makedirs(nltk_data_dir, exist_ok=True)
+
+if nltk_data_dir not in nltk.data.path:
+    nltk.data.path.append(nltk_data_dir)
+
+for pkg in ["stopwords", "punkt", "wordnet", "omw-1.4"]:
+    try:
+        nltk.data.find(f"corpora/{pkg}")
+    except LookupError:
+        nltk.download(pkg, download_dir=nltk_data_dir)
+        
 from fastapi import FastAPI, File, UploadFile, HTTPException
 from pydantic import BaseModel
 import time
@@ -7,7 +22,6 @@ from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from pydub import AudioSegment
 from tempfile import NamedTemporaryFile
-import os
 import speech_recognition as sr
 
 app = FastAPI()
@@ -41,6 +55,7 @@ async def predict_text(request: TextRequest):
     prediction_text = "Hate Speech" if predicted_label == 1 else "Safe Speech"
     
     return {
+        "cleaned_text": processed_text,
         "prediction": prediction_text,
         "probabilities": {
             "safe": float(predicted_probabilities[0]),
@@ -86,7 +101,6 @@ async def predict_audio(file: UploadFile = File(...)):
     
         return {
             "original_transcription": transcribed_text,
-            "converted_text": transcribed_text,
             "cleaned_text": processed_transcribed_text,
             "prediction": prediction_text,
             "probabilities": {
