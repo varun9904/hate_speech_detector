@@ -7,7 +7,7 @@ os.makedirs(nltk_data_dir, exist_ok=True)
 if nltk_data_dir not in nltk.data.path:
     nltk.data.path.append(nltk_data_dir)
 
-for pkg in ["stopwords", "punkt", "wordnet", "omw-1.4"]:
+for pkg in ["stopwords", "punkt", "wordnet", "omw-1.4", "punkt_tab"]:
     try:
         nltk.data.find(f"corpora/{pkg}")
     except LookupError:
