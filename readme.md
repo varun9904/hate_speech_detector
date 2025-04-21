@@ -31,7 +31,7 @@ This made it easier while still solving the problem.
 
 1. **Clone the repository:**
 
-    git clone https://github.com/your-username/hate_speech_detector.git
+    git clone https://github.com/varun9904/hate_speech_detector.git
 
 
 2. **Install dependencies:**
