@@ -53,8 +53,6 @@ To run the API locally, use Uvicorn:
 uvicorn main:app --reload
 ```
 
-
-- Visit `http://127.0.0.1:8000/predict` or `http://127.0.0.1:8000/predict_audio` in your browser to access the interactive Swagger UI documentation.
 - Test the endpoints:
   - **Text Prediction:**
 
