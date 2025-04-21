@@ -50,11 +50,11 @@ This made it easier while still solving the problem.
 
 To run the API locally, use Uvicorn:
 ```
-uvicorn main:app --reload --host 0.0.0.0 --port 8000
+uvicorn main:app --reload
 ```
 
 
-- Visit `http://127.0.0.1:8000/docs` in your browser to access the interactive Swagger UI documentation.
+- Visit `http://127.0.0.1:8000/predict` or `http://127.0.0.1:8000/predict_audio` in your browser to access the interactive Swagger UI documentation.
 - Test the endpoints:
   - **Text Prediction:**
 
@@ -68,47 +68,9 @@ uvicorn main:app --reload --host 0.0.0.0 --port 8000
     curl -X POST "http://127.0.0.1:8000/predict_audio" -F "file=@/path/to/your/audiofile.mp3"
     ```
 
-## Deployment on Render
+## Deployment
 
 The project is configured for deployment on Render.
-
-1. **Files Required for Deployment:**
-
-   - `main.py`: The FastAPI application code.
-   - `best_model.pkl`: The trained hate speech detection model.
-   - `vectorizer.pkl`: The fitted TF-IDF vectorizer.
-   - `requirements.txt`: List of Python dependencies.
-   - `Procfile`: Specifies how to start your app (no file extension).
-
-2. **Procfile:**
-
-   Create a file named `Procfile` with no extension and add the following line:
-   ```
-   web: uvicorn main:app --host=0.0.0.0 --port=$PORT
-   ```
-
-   
-3. **Push to GitHub:**
-
-Make sure your repository is pushed to GitHub. Render will clone your repository automatically.
-
-4. **Configure on Render:**
-
-- Log in to [Render](https://render.com) and create a new Web Service.
-- Connect your GitHub repository.
-- Set the build command to:
-  
-  ```
-  pip install -r requirements.txt
-  ```
-  
-- Set the start command to:
-  
-  ```
-  uvicorn main:app --host=0.0.0.0 --port=$PORT
-  ```
-  
-- Deploy the service. Render will assign your app a public URL.
 
 ## Usage
 
