@@ -45,25 +45,6 @@ This made it easier while still solving the problem.
 3. **Download NLTK Data:**
 
     The application automatically downloads necessary NLTK corpora (such as stopwords, punkt, wordnet, omw-1.4) on startup. No manual intervention is needed.
-
-## Running Locally
-
-To run the API locally, use Uvicorn:
-```
-uvicorn main:app --reload
-```
-
-- Test the endpoints:
-  - **Text Prediction:**
-
-    ```
-    curl -X POST "http://127.0.0.1:8000/predict" -H "Content-Type: application/json" -d "{\"text\": \"your_message\"}"
-    ```
-
-  - **Audio Prediction:**
-
-    ```
-    curl -X POST "http://127.0.0.1:8000/predict_audio" -F "file=@/path/to/your/audiofile.mp3"
     ```
 
 ## Deployment
@@ -76,9 +57,7 @@ The project is configured for deployment on Render.
 
 Send a POST request with JSON data:
 ```
-curl -X POST "https://hate-speech-detector-4.onrender.com/predict"
--H "Content-Type: application/json"
--d "{"text": "user_message"}"
+curl -X POST "https://hate-speech-detector-4.onrender.com/predict" -H "Content-Type: application/json" -d "{"text": "user_message"}"
 ```
 
 
@@ -86,8 +65,7 @@ curl -X POST "https://hate-speech-detector-4.onrender.com/predict"
 
 Send a POST request with a file upload:
 ```
-curl -X POST "https://hate-speech-detector-4.onrender.com/predict_audio"
--F "file=@/path/to/your/audiofile.mp3"
+curl -X POST "https://hate-speech-detector-4.onrender.com/predict_audio" -F "file=@/path/to/your/audiofile.mp3"
 ```
 
 
