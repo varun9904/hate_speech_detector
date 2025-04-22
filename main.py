@@ -40,6 +40,10 @@ def clean_text(text):
 model = joblib.load("best_model.pkl")
 vectorizer = joblib.load("vectorizer.pkl")
 
+@app.get("/")
+def root():
+    return {"msg": "Hate classification ready!"}
+
 class TextRequest(BaseModel):
     text: str
 
