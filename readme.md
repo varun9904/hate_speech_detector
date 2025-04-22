@@ -56,7 +56,7 @@ The project is configured for deployment on Render.
 
 Send a POST request with JSON data:
 ```
-curl -X POST "https://hate-speech-detector-4.onrender.com/predict" -H "Content-Type: application/json" -d "{"text": "user_message"}"
+curl -X POST "https://hate-speech-detector-4.onrender.com/predict" -H "Content-Type: application/json" -d "{\"text\": \"user_message\"}"
 ```
 
 
