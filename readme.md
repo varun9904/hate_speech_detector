@@ -1,11 +1,10 @@
 # Hate Speech Detector
 
-This repository contains a FastAPI-based hate speech detection API that supports both text input and audio file uploads. The API preprocesses input text and uses a logistic regression model with TF-IDF features to classify the content as either "Hate" or "Safe".
+This repository contains a FastAPI-based hate speech detection API that supports both text input uploads. The API preprocesses input text and uses a logistic regression model with TF-IDF features to classify the content as either "Hate" or "Safe".
 
 ## Overview
 
 - **/predict**: Accepts a JSON payload with a `text` field. It preprocesses the text, transforms it using a TF-IDF vectorizer, and uses a trained model to predict whether the content represents hate speech.
-- **/predict_audio**: Accepts an audio file (e.g., MP3, WAV, M4A), converts it to WAV format using pydub, transcribes it using SpeechRecognition with Google's API, preprocesses the transcription, and then classifies it.
 
 ## Dataset
 
